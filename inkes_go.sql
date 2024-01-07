@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 02, 2024 at 02:38 PM
+-- Generation Time: Jan 07, 2024 at 04:56 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -46,13 +46,59 @@ INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `doctor`
+--
+
+CREATE TABLE `doctor` (
+  `id` int(11) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `doctor`
+--
+
+INSERT INTO `doctor` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'RS dr. Sismadi', '2024-01-06 22:24:37', '2024-01-06 22:24:37'),
+(2, 'RS dr. Doni', '2024-01-06 22:24:46', '2024-01-06 22:24:46'),
+(3, 'RS dr. Sumardi', '2024-01-06 22:24:55', '2024-01-06 22:24:55');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `medicine`
+--
+
+CREATE TABLE `medicine` (
+  `id` int(11) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `medicine`
+--
+
+INSERT INTO `medicine` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'Paracetamol', '2024-01-06 22:26:57', '2024-01-06 22:26:57'),
+(2, 'Amoxicillin', '2024-01-06 22:27:29', '2024-01-06 22:27:29'),
+(3, 'Diatabs', '2024-01-06 22:27:50', '2024-01-06 22:27:50'),
+(4, 'Oralit', '2024-01-06 22:27:58', '2024-01-06 22:27:58'),
+(5, 'Ambroxol', '2024-01-06 22:29:00', '2024-01-06 22:29:00'),
+(6, 'Methylprednisolone', '2024-01-06 22:29:52', '2024-01-06 22:29:52');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pasien`
 --
 
 CREATE TABLE `pasien` (
   `id` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
-  `category_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -61,11 +107,11 @@ CREATE TABLE `pasien` (
 -- Dumping data for table `pasien`
 --
 
-INSERT INTO `pasien` (`id`, `name`, `category_id`, `created_at`, `updated_at`) VALUES
-(1, 'Raihan', 1, '2024-01-02 10:49:56', '2024-01-02 10:49:56'),
-(2, 'Zaky', 2, '2024-01-02 05:24:16', '2024-01-02 05:24:16'),
-(3, 'Rei', 1, '2024-01-02 05:43:46', '2024-01-02 06:11:20'),
-(4, 'Zhafran', 1, '2024-01-02 05:46:13', '2024-01-02 12:46:50');
+INSERT INTO `pasien` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'Raihan', '2024-01-07 08:48:49', '2024-01-07 08:48:49'),
+(2, 'Rei', '2024-01-07 08:48:55', '2024-01-07 08:48:55'),
+(3, 'Zaky', '2024-01-07 08:49:00', '2024-01-07 08:49:00'),
+(4, 'Zhafran', '2024-01-07 08:49:43', '2024-01-07 08:49:43');
 
 -- --------------------------------------------------------
 
@@ -93,6 +139,35 @@ INSERT INTO `products` (`id`, `name`, `category_id`, `stock`, `description`, `cr
 (9, 'test', 1, 0, NULL, '2024-01-02 05:19:09', '2024-01-02 05:19:09'),
 (10, 'test', 1, 0, NULL, '2024-01-02 05:23:36', '2024-01-02 05:23:36');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `record`
+--
+
+CREATE TABLE `record` (
+  `id` int(11) NOT NULL,
+  `id_pasien` int(11) NOT NULL,
+  `id_categori` int(11) NOT NULL,
+  `id_doctor` int(11) NOT NULL,
+  `diagnose` text NOT NULL,
+  `description` text NOT NULL,
+  `id_medicine` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `record`
+--
+
+INSERT INTO `record` (`id`, `id_pasien`, `id_categori`, `id_doctor`, `diagnose`, `description`, `id_medicine`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 1, '', '', 1, '2024-01-02 10:49:56', '2024-01-07 08:57:49'),
+(2, 2, 2, 2, '', '', 2, '2024-01-02 05:24:16', '2024-01-07 08:57:52'),
+(3, 3, 1, 3, '', '', 3, '2024-01-02 05:43:46', '2024-01-07 14:56:26'),
+(5, 4, 1, 1, 'batuk', 'batuk berdahak', 5, '2024-01-07 08:39:01', '2024-01-07 08:39:01'),
+(6, 4, 1, 2, 'Demam', 'Demam', 1, '2024-01-07 08:39:58', '2024-01-07 08:39:58');
+
 --
 -- Indexes for dumped tables
 --
@@ -101,6 +176,18 @@ INSERT INTO `products` (`id`, `name`, `category_id`, `stock`, `description`, `cr
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `doctor`
+--
+ALTER TABLE `doctor`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `medicine`
+--
+ALTER TABLE `medicine`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -116,6 +203,12 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `record`
+--
+ALTER TABLE `record`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -124,6 +217,18 @@ ALTER TABLE `products`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `doctor`
+--
+ALTER TABLE `doctor`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `medicine`
+--
+ALTER TABLE `medicine`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `pasien`
@@ -136,6 +241,12 @@ ALTER TABLE `pasien`
 --
 ALTER TABLE `products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `record`
+--
+ALTER TABLE `record`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
