@@ -3,7 +3,7 @@ package main
 import (
 	"go-web-native/config"
 	"go-web-native/controllers/homecontroller"
-	"go-web-native/controllers/productcontroller"
+	"go-web-native/controllers/recordcontroller"
 	"log"
 	"net/http"
 )
@@ -16,12 +16,12 @@ func main() {
 	// Homepage
 	http.HandleFunc("/", homecontroller.Welcome)
 
-	// Products
-	http.HandleFunc("/pasien", productcontroller.Index)
-	http.HandleFunc("/pasien/add", productcontroller.Add)
-	http.HandleFunc("/pasien/detail", productcontroller.Detail)
-	http.HandleFunc("/pasien/edit", productcontroller.Edit)
-	http.HandleFunc("/pasien/delete", productcontroller.Delete)
+	// Pasien
+	http.HandleFunc("/pasien", recordcontroller.Index)
+	http.HandleFunc("/pasien/add", recordcontroller.Add)
+	http.HandleFunc("/pasien/detail", recordcontroller.Detail)
+	http.HandleFunc("/pasien/edit", recordcontroller.Edit)
+	http.HandleFunc("/pasien/delete", recordcontroller.Delete)
 
 	// Info
 	log.Println("Server running on port: 8080")

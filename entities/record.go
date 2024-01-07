@@ -2,10 +2,14 @@ package entities
 
 import "time"
 
-type Product struct {
+type Record struct {
 	Id          uint
-	Name        string
+	Pasien Pasien
 	Category    Category
+	Doctor Doctor
+	Diagnose string
+	Description string
+	Medicine Medicine
 	CreatedAt   time.Time
 	UpdatedAt   time.Time
 }

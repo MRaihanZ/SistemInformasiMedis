@@ -80,17 +80,32 @@
 						<th>Id</th>
 						<th>Name</th>
 						<th>Category</th>
+						<th>Doctor</th>
+						<th>Diagnose</th>
+						<th>Description</th>
+						<th>Medicine</th>
+						<th>Date</th>
 						<th>Action</th>
 					</tr>
 				</thead>
 				<tbody>
-					{{range $index, $product := .products}}
+					{{range $index, $record := .pasiens}}
 					<tr>
 						<td>{{$index}}</td>
-						<td>{{ .Id }}</td>
-						<td>{{.Name}}</td>
+						<td>{{ .Pasien.Id }}</td>
+						<td>{{.Pasien.Name}}</td>
 						<td>{{.Category.Name}}</td>
+						<td>{{ .Doctor.Name }}</td>
+						<td>{{ .Diagnose }}</td>
+						<td>{{ .Description }}</td>
+						<td>{{ .Medicine.Name }}</td>
+						<td>{{ .CreatedAt }}</td>
 						<td>
+							<a
+								href="pasien?id={{.Id}}"
+								class="btn btn-sm btn-success text-light"
+								>Record</a
+							>
 							<a
 								href="/pasien/detail?id={{.Id}}"
 								class="btn btn-sm btn-info text-light"
@@ -115,10 +130,15 @@
 		</div>
 		<script>
 			const searchBtn = document.getElementById("searchBtn");
+			const searchID = document.getElementById("searchID");
+			searchID.addEventListener("keypress", function (e) {
+				if (e.key === "Enter") {
+					searchBtn.click();
+				}
+			});
 			searchBtn.addEventListener("click", () => {
-				const searchID = document.getElementById("searchID").value;
-				window.location.href =
-					"http://localhost:8080/pasien/edit?id=" + searchID;
+				const value = searchID.value;
+				window.location.href = "http://localhost:8080/pasien?id=" + value;
 			});
 		</script>
 	</body>

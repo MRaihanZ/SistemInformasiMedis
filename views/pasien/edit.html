@@ -51,36 +51,85 @@
 		<div class="container mt-3">
 			<div class="row d-flex justify-content-center">
 				<div class="col-4">
-					<h2>Edit Products</h2>
+					<h2>Edit Pasien Record</h2>
 					<hr />
 
 					<form action="/pasien/edit" method="POST">
-						<input type="hidden" name="id" value="{{ .product.Id }}" />
 						<div class="mb-3">
 							<label class="form-label">Id</label>
 							<input
-								type="number"
-								class="form-control"
+								type="text"
 								name="id"
-								value="{{ .product.Id}}"
-								autocomplete="off"
+								class="form-control"
+								value="{{ .record.Id}}"
 								disabled
+							/>
+							<input
+								type="hidden"
+								name="id"
+								class="form-control"
+								value="{{ .record.Id}}"
 							/>
 						</div>
 						<div class="mb-3">
 							<label class="form-label">Name</label>
-							<input
-								type="text"
-								class="form-control"
-								name="name"
-								value="{{ .product.Name}}"
-							/>
+							<select class="form-select" name="id_pasien">
+								<option value="{{ .record.Pasien.Id}}">
+									-- Default: {{.record.Pasien.Name}}
+								</option>
+								{{range .pasien}}
+								<option value="{{ .Id}}">{{.Name}}</option>
+								{{end}}
+							</select>
 						</div>
 						<div class="mb-3">
 							<label class="form-label">Category</label>
-							<select class="form-select" name="category_id">
+							<select class="form-select" name="id_category">
+								<option value="{{ .record.Category.Id}}">
+									-- Default: {{.record.Category.Name}}
+								</option>
 								{{range .categories}}
-								<option value="{{ .Id}}">{{ .Name }}</option>
+								<option value="{{ .Id}}">{{.Name}}</option>
+								{{end}}
+							</select>
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Doctor Name</label>
+							<select class="form-select" name="id_doctor">
+								<option value="{{ .record.Doctor.Id}}">
+									-- Default: {{.record.Doctor.Name}}
+								</option>
+								{{range .doctor}}
+								<option value="{{ .Id}}">{{.Name}}</option>
+								{{end}}
+							</select>
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Diagnose</label>
+							<textarea
+								name="diagnose"
+								class="form-control"
+								rows="5"
+								placeholder="{{ .record.Diagnose }}"
+							></textarea>
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Description</label>
+							<textarea
+								name="description"
+								class="form-control"
+								rows="5"
+								placeholder="{{ .record.Description }}"
+							></textarea>
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Medicine Name</label>
+							<select class="form-select" name="id_medicine">
+								<option value="{{ .record.Medicine.Id}}">
+									-- Default: {{.record.Medicine.Name}}
+								</option>
+								{{range .medicine}}
+								<option value="{{ .Id}}">{{.Name}}</option>
 								{{end}}
 							</select>
 						</div>

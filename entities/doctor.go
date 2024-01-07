@@ -2,9 +2,9 @@ package entities
 
 import "time"
 
-type Category struct {
+type Doctor struct {
 	Id         uint
 	Name       string
-	CreatedAt  time.Time
+	CreatedAt time.Time
 	UpdatedAt time.Time
 }

@@ -51,23 +51,56 @@
 		<div class="container mt-3">
 			<div class="row d-flex justify-content-center">
 				<div class="col-4">
-					<h2>Add Products</h2>
+					<h2>Add Pasien Record</h2>
 					<hr />
 
 					<form action="/pasien/add" method="POST">
 						<div class="mb-3">
 							<label class="form-label">Name</label>
-							<input
-								type="text"
-								class="form-control"
-								name="name"
-								autocomplete="off"
-							/>
+							<select class="form-select" name="id_pasien">
+								{{range .pasien}}
+								<option value="{{ .Id}}">{{.Name}}</option>
+								{{end}}
+							</select>
 						</div>
 						<div class="mb-3">
 							<label class="form-label">Category</label>
-							<select class="form-select" name="category_id">
+							<select class="form-select" name="id_category">
 								{{range .categories}}
+								<option value="{{ .Id}}">{{.Name}}</option>
+								{{end}}
+							</select>
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Doctor Name</label>
+							<select class="form-select" name="id_doctor">
+								{{range .doctor}}
+								<option value="{{ .Id}}">{{.Name}}</option>
+								{{end}}
+							</select>
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Diagnose</label>
+							<textarea
+								name="diagnose"
+								class="form-control"
+								rows="5"
+								placeholder=""
+							></textarea>
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Description</label>
+							<textarea
+								name="description"
+								class="form-control"
+								rows="5"
+								placeholder=""
+							></textarea>
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Medicine Name</label>
+							<select class="form-select" name="id_medicine">
+								{{range .medicine}}
 								<option value="{{ .Id}}">{{.Name}}</option>
 								{{end}}
 							</select>
