@@ -1,12 +1,12 @@
-## Setup
+# Setup
 
-# Run Program
+## Run Program
 
 ```bash
 go run main.go
 ```
 
-# Make Program
+## Make Program
 
 ```bash
 go build
