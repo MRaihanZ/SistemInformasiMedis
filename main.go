@@ -3,6 +3,7 @@ package main
 import (
 	"go-web-native/config"
 	"go-web-native/controllers/homecontroller"
+	"go-web-native/controllers/printcontroller"
 	"go-web-native/controllers/recordcontroller"
 	"log"
 	"net/http"
@@ -22,6 +23,10 @@ func main() {
 	http.HandleFunc("/pasien/detail", recordcontroller.Detail)
 	http.HandleFunc("/pasien/edit", recordcontroller.Edit)
 	http.HandleFunc("/pasien/delete", recordcontroller.Delete)
+
+	// print
+	http.HandleFunc("/print", printcontroller.Print)
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("assets"))))
 
 	// Info
 	log.Println("Server running on port: 8080")

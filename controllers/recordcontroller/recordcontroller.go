@@ -25,9 +25,9 @@ func Index(w http.ResponseWriter, r *http.Request) {
 		isIdSet = true
 	}
 
-	pasiens := recordmodel.Getall(isIdSet, id)
+	records := recordmodel.Getall(isIdSet, id)
 	data := map[string]any{
-		"pasiens": pasiens,
+		"records": records,
 	}
 
 	temp, err := template.ParseFiles("views/pasien/index.html")

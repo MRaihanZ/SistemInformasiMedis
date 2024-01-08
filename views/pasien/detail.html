@@ -54,11 +54,20 @@
 					<h2>Detail Record Pasien</h2>
 					<hr />
 					<div class="mb-3">
-						<label class="form-label">Id</label>
+						<label class="form-label">Id Record</label>
 						<input
 							type="text"
 							class="form-control"
 							value="{{ .record.Id}}"
+							disabled
+						/>
+					</div>
+					<div class="mb-3">
+						<label class="form-label">Id Pasien</label>
+						<input
+							type="text"
+							class="form-control"
+							value="{{ .record.Pasien.Id}}"
 							disabled
 						/>
 					</div>
