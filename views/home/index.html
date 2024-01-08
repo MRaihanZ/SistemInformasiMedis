@@ -4,42 +4,73 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>GO Pasien</title>
-		<link
-			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-			rel="stylesheet"
-			integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-			crossorigin="anonymous"
-		/>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+		<style>
+			.typing-demo {
+				width: 23.5ch;
+				animation: typing 2s steps(10), blink 0.5s step-end infinite alternate;
+				white-space: nowrap;
+				overflow: hidden;
+				border-right: 3px solid white;
+				font-family: monospace;
+				font-size: 2em;
+			}
+
+			@keyframes typing {
+				from {
+					width: 0;
+				}
+			}
+
+			@keyframes blink {
+				50% {
+					border-color: transparent;
+				}
+			}
+		</style>
 	</head>
 	<body>
 		<!-- Navar -->
-		<nav class="navbar navbar-expand-lg bg-dark">
-			<div class="container">
-				<a class="navbar-brand text-light" href="/">Go Pasien</a>
-				<button
-					class="navbar-toggler"
-					type="button"
-					data-bs-toggle="collapse"
-					data-bs-target="#navbarNav"
-					aria-controls="navbarNav"
-					aria-expanded="false"
-					aria-label="Toggle navigation"
+		<nav
+			class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600"
+		>
+			<div
+				class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+			>
+				<a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+					<span
+						class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+						>Go Pasien</span
+					>
+				</a>
+				<div
+					class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+					id="navbar-sticky"
 				>
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarNav">
-					<ul class="navbar-nav ms-auto">
-						<li class="nav-item pe-3">
+					<ul
+						class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+					>
+						<li>
 							<a
-								class="nav-link active text-light"
+								href="/"
+								class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
 								aria-current="page"
+								>Home</a
+							>
+						</li>
+						<li>
+							<a
 								href="/pasien"
+								class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
 								>Pasien</a
 							>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link active text-light" href="/categories"
-								>Categories</a
+						<li>
+							<a
+								href="/pasien/add"
+								class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+								>Add</a
 							>
 						</li>
 					</ul>
@@ -47,9 +78,239 @@
 			</div>
 		</nav>
 		<!-- End of Navbar -->
+		<section class="w-screen h-screen bg-[#0f172a] p-8 pt-24" id="glassmorph">
+			<section class="flex justify-center">
+				<img src="/static/svg/ccchaos.svg" alt="" class="w-1/2 z-0 fixed" />
+			</section>
+			<section
+				class="h-full w-full bg-gray-0 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-0 z-10"
+			>
+				<div class="wrapper-kelompok text-center flex mb-10 justify-center">
+					<div class="typing-demo">
+						<p class="text-6xl text-white font-mono">Kelompok 3</p>
+					</div>
+				</div>
 
-		<div class="container mt-3">
-			<h1>Hello, world!</h1>
-		</div>
+				<section
+					class="grid grid-cols-4 gap-4 justify-items-center container mx-auto"
+				>
+					<div
+						class="w-full max-w-sm border shadow pt-8 w-full bg-gray-0 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-0 border border-gray-100"
+						data-aos="zoom-in-up"
+						data-aos-delay="0"
+					>
+						<div class="flex flex-col items-center pb-10">
+							<img
+								class="w-24 mb-3 shadow-lg rounded-full"
+								src="/static/img/profile.jpg"
+								alt="Khalid Adam Albani"
+							/>
+							<h5
+								class="mb-1 text-xl font-medium text-gray-900 dark:text-white"
+							>
+								Khalid Adam Albani
+							</h5>
+							<span class="text-sm text-gray-500 dark:text-gray-400"
+								>50422789</span
+							>
+						</div>
+					</div>
+					<div
+						class="w-full max-w-sm border shadow pt-8 w-full bg-gray-0 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-0 border border-gray-100"
+						data-aos="zoom-in-up"
+						data-aos-delay="50"
+					>
+						<div class="flex flex-col items-center pb-10">
+							<img
+								class="w-24 mb-3 shadow-lg rounded-full"
+								src="/static/img/profile.jpg"
+								alt="Maarif Fuadi Arianto"
+							/>
+							<h5
+								class="mb-1 text-xl font-medium text-gray-900 dark:text-white"
+							>
+								Maarif Fuadi Arianto
+							</h5>
+							<span class="text-sm text-gray-500 dark:text-gray-400"
+								>50422845</span
+							>
+						</div>
+					</div>
+					<div
+						class="w-full max-w-sm border shadow pt-8 w-full bg-gray-0 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-0 border border-gray-100"
+						data-aos="zoom-in-up"
+						data-aos-delay="100"
+					>
+						<div class="flex flex-col items-center pb-10">
+							<img
+								class="w-24 mb-3 shadow-lg rounded-full"
+								src="/static/img/profile.jpg"
+								alt="Muhamad Aditya Umar Faiz"
+							/>
+							<h5
+								class="mb-1 text-xl font-medium text-gray-900 dark:text-white"
+							>
+								Muhamad Aditya Umar Faiz
+							</h5>
+							<span class="text-sm text-gray-500 dark:text-gray-400"
+								>50422931</span
+							>
+						</div>
+					</div>
+					<div
+						class="w-full max-w-sm border shadow pt-8 w-full bg-gray-0 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-0 border border-gray-100"
+						data-aos="zoom-in-up"
+						data-aos-delay="150"
+					>
+						<div class="flex flex-col items-center pb-10">
+							<img
+								class="w-24 mb-3 shadow-lg rounded-full"
+								src="/static/img/profile.jpg"
+								alt="Muhammad Fahri Aziz"
+							/>
+							<h5
+								class="mb-1 text-xl font-medium text-gray-900 dark:text-white"
+							>
+								Muhammad Fahri Aziz
+							</h5>
+							<span class="text-sm text-gray-500 dark:text-gray-400"
+								>51422027</span
+							>
+						</div>
+					</div>
+					<div
+						class="w-full max-w-sm border shadow pt-8 w-full bg-gray-0 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-0 border border-gray-100"
+						data-aos="zoom-in-up"
+						data-aos-delay="200"
+					>
+						<div class="flex flex-col items-center pb-10">
+							<img
+								class="w-24 mb-3 shadow-lg rounded-full"
+								src="/static/img/profile.jpg"
+								alt="Muhammad Raihan Zhafran"
+							/>
+							<h5
+								class="mb-1 text-xl font-medium text-gray-900 dark:text-white"
+							>
+								Muhammad Raihan Zhafran
+							</h5>
+							<span class="text-sm text-gray-500 dark:text-gray-400"
+								>51422127</span
+							>
+						</div>
+					</div>
+					<div
+						class="w-full max-w-sm border shadow pt-8 w-full bg-gray-0 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-0 border border-gray-100"
+						data-aos="zoom-in-up"
+						data-aos-delay="250"
+					>
+						<div class="flex flex-col items-center pb-10">
+							<img
+								class="w-24 mb-3 shadow-lg rounded-full"
+								src="/static/img/profile.jpg"
+								alt="Muhammad Hisyan"
+							/>
+							<h5
+								class="mb-1 text-xl font-medium text-gray-900 dark:text-white"
+							>
+								Muhammad Hisyan
+							</h5>
+							<span class="text-sm text-gray-500 dark:text-gray-400"
+								>51422075</span
+							>
+						</div>
+					</div>
+					<div
+						class="w-full max-w-sm border shadow pt-8 w-full bg-gray-0 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-0 border border-gray-100"
+						data-aos="zoom-in-up"
+						data-aos-delay="300"
+					>
+						<div class="flex flex-col items-center pb-10">
+							<img
+								class="w-24 mb-3 shadow-lg rounded-full"
+								src="/static/img/profile.jpg"
+								alt="Muhammad Rizky"
+							/>
+							<h5
+								class="mb-1 text-xl font-medium text-gray-900 dark:text-white"
+							>
+								Muhammad Rizky
+							</h5>
+							<span class="text-sm text-gray-500 dark:text-gray-400"
+								>51422149</span
+							>
+						</div>
+					</div>
+					<div
+						class="w-full max-w-sm border shadow pt-8 w-full bg-gray-0 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-0 border border-gray-100"
+						data-aos="zoom-in-up"
+						data-aos-delay="350"
+					>
+						<div class="flex flex-col items-center pb-10">
+							<img
+								class="w-24 mb-3 shadow-lg rounded-full"
+								src="/static/img/profile.jpg"
+								alt="Muhammad Nur Syafei"
+							/>
+							<h5
+								class="mb-1 text-xl font-medium text-gray-900 dark:text-white"
+							>
+								Muhammad Nur Syafei
+							</h5>
+							<span class="text-sm text-gray-500 dark:text-gray-400"
+								>51422103</span
+							>
+						</div>
+					</div>
+					<div
+						class="w-full max-w-sm border shadow pt-8 w-full bg-gray-0 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-0 border border-gray-100 col-start-2"
+						data-aos="zoom-in-up"
+						data-aos-delay="400"
+					>
+						<div class="flex flex-col items-center pb-10">
+							<img
+								class="w-24 mb-3 shadow-lg rounded-full"
+								src="/static/img/profile.jpg"
+								alt="Muhammad Wildan"
+							/>
+							<h5
+								class="mb-1 text-xl font-medium text-gray-900 dark:text-white"
+							>
+								Muhammad Wildan
+							</h5>
+							<span class="text-sm text-gray-500 dark:text-gray-400"
+								>50422168</span
+							>
+						</div>
+					</div>
+					<div
+						class="w-full max-w-sm border shadow pt-8 w-full bg-gray-0 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-0 border border-gray-100"
+						data-aos="zoom-in-up"
+						data-aos-delay="450"
+					>
+						<div class="flex flex-col items-center pb-10">
+							<img
+								class="w-24 mb-3 shadow-lg rounded-full"
+								src="/static/img/profile.jpg"
+								alt="Muhammad Zahran Arya. S"
+							/>
+							<h5
+								class="mb-1 text-xl font-medium text-gray-900 dark:text-white"
+							>
+								Muhammad Zahran Arya. S
+							</h5>
+							<span class="text-sm text-gray-500 dark:text-gray-400"
+								>51422170</span
+							>
+						</div>
+					</div>
+				</section>
+			</section>
+		</section>
+
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+		<script>
+			AOS.init();
+		</script>
 	</body>
 </html>
